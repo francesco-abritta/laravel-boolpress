@@ -14,19 +14,21 @@ class PostController extends Controller
         //     "surname"=>"Abri"
         // ]);
 
-        if($category){
-            $posts=Post::where("category_id", $category)->get();
-        }else{
-            $posts=Post::all();
-        }
+        // if($category){
+        //     $posts=Post::where("category_id", $category)->get();
+        // }else{
+        //     $posts=Post::all();
+        // }
+
+        $posts = Post::with('category', 'tags')->get();
 
         return response()->json($posts);
     }
 
-    public function filter($id, $category){
+    // public function filter($id, $category){
 
-        $posts=Post::where("id", $id)->where("category_id", $category)->get();
+    //     $posts=Post::where("id", $id)->where("category_id", $category)->get();
 
-        return response()->json($posts);
-    }
+    //     return response()->json($posts);
+    // }
 }
