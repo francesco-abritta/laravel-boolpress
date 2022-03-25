@@ -11,10 +11,5 @@ export default {
 </script>
 
 <style scoped>
-  ul{
-    list-style: none;
-  }
-  li{
-    margin-bottom: 20px;
-  }
+  
 </style>

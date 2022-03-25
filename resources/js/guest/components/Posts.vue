@@ -5,9 +5,11 @@
           <div>TITOLO: {{post.title}}</div>
           <div>CONTENUTO: {{post.content}}</div>
           <div v-if="post.category">CATEGORIA: {{post.category.name}}</div>
-          <ul>
+          <ul v-if="post.tags">
             TAG: <li v-for="tag in post.tags" :key="tag.slug">{{tag.name}}</li>
           </ul>
+
+          <router-link :to="{ name: 'single-post', params: { slug: post.slug } }">Visualizza il post</router-link>
         </li>
       </ul>
   </div>
@@ -32,6 +34,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+ul{
+    list-style: none;
+  }
+  li{
+    margin-bottom: 20px;
+  }
 </style>

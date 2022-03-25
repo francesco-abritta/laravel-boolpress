@@ -25,10 +25,10 @@ class PostController extends Controller
         return response()->json($posts);
     }
 
-    // public function filter($id, $category){
+    public function show($slug){
 
-    //     $posts=Post::where("id", $id)->where("category_id", $category)->get();
+        $post=Post::where("slug", $slug)->with("category", "tags")->first();
 
-    //     return response()->json($posts);
-    // }
+        return response()->json($post);
+    }
 }
